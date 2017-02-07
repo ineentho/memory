@@ -47,16 +47,16 @@ window.onload = printBilder(bilder);
 //Funktioner för funktionaliteten i spelet
 
 
-//inspiration till funktionen som gör att man kan klicka på alla bilder och skicka dess class
-//http://stackoverflow.com/questions/964119/how-to-get-the-class-of-the-clicked-element
-
-
-//lagrar klassen hos den bild man klickar på
+//lagrar klass & ID hos den bild man klickar på
 var klassKlick = [ 0, 0, 0, 0];
 var idKlick = [ 0, 0, 0, 0];
 
 var antalPar = 0;
 
+
+//Diverse funktioner som används i "parhittandet"
+
+//Återställer alla variabler
 function resetKlicks() {
     klassKlick[0] = 0;
     klassKlick[1] = 0;
@@ -71,30 +71,25 @@ function resetKlicks() {
 
 //Kollar så att alla klasser är samma
 function allSameClass() {
-    alert("allSameClass");
-    alert(klassKlick[0] + " " + klassKlick[1] + " " + klassKlick[2] + " " + klassKlick[3]);
     var bool;
     
-    for(var i = 0; i < klassKlick.length - 1; i++) {
+    for(var i = 1; i < klassKlick.length; i++) {
         
-        if(klassKlick[i] == 0 || klassKlick[i + 1] == 0) {
+        if(klassKlick[i] == 0) {
             break;
         }
-        else if (klassKlick[i] != klassKlick[i + 1]) {
+        else if (klassKlick[0] != klassKlick[i]) {
             bool = false;
         }
         else {
             bool = true;
         }
     }
-    alert(bool);
     return bool;
 };
 
-
+//Kollar så att alla ID skiljer sig åt
 function differentId() {
-    alert("differentID");
-    alert(idKlick[0] + " " + idKlick[1] + " " + idKlick[2] + " " + idKlick[3]);
     var bool;
     
     for(var i = 1; i < idKlick.length; i++) {
@@ -110,8 +105,11 @@ function differentId() {
         }
     }
     
-    alert(bool);
     return bool;
+}
+
+function toggleClass(className) {
+    $("." + className).fadeToggle("fast");
 }
 
 
@@ -129,54 +127,41 @@ $("img").click(function() {
         idKlick[1] = $(this).attr("id");
         alert(klassKlick[1]);
         
-        //Kollar efter just det här paret
-        if(allSameClass() == true && differentId() == true
-           && klassKlick[0] == "1") {
+        //Kollar efter paret med klass 1
+        if(klassKlick[0] == "1") {
             
-            $("." + klassKlick[0]).fadeToggle("fast");
+            //Om alla klick har samma klass men olika ID är paret godkänt
+            if(allSameClass() == true && differentId() == true) {
+                toggleClass("1");
+                resetKlicks();
+            }           
             
-            resetKlicks();
         }
     }
-    else {
-        resetKlicks();
+    else if(klassKlick[2] == 0) {
+        klassKlick[2] = $(this).attr("class");
+        idKlick[2] = $(this).attr("id");
+        alert(klassKlick[2]);
+
     }
-//    else if(klassKlick3 == 0) {
-//        klassKlick3 = $(this).attr("class");
-//        idKlick3 = $(this).attr("id");
-//
-//    }
-//    else if(klassKlick4 == 0) {
-//        klassKlick4 = $(this).attr("class");
-//        idKlick4 = $(this).attr("id");
-//        
-//        if(klassKlick1 == "2" && klassKlick2 == "2" && klassKlick3 == "2" && klassKlick4="2" &&
-//           idKlick1 !=)
-//
-//    }
+    else if(klassKlick[3] == 0) {
+        klassKlick[3] = $(this).attr("class");
+        idKlick[3] = $(this).attr("id");
+        alert(klassKlick[3]);
+        
+        //Kollar efter paret med klass 2
+        if(klassKlick[0] == "2") {
+            
+            
+            if(allSameClass() == true && differentId() == true) {
+                toggleClass("2");
+                resetKlicks();
+                
+            }     
+            else {
+                resetKlicks();
+                alert("Du hittade inte alla par...");
+            }
+        }
+    }
 });
-    //Om variablerna är lika försvinner paret
-//    if(x != 0 && y != 0) {
-//        if(x == y && a != b) {
-//            $("." + x).fadeToggle("fast");
-//            
-//            x = 0;
-//            y = 0;
-//            
-//            //Håller koll på hur många par du hittat
-//            par += 1;
-//            
-//            if(par == 3) {
-//                alert("Du hittade alla par!");
-//            }
-//            
-//        }
-//        //annars återställs variablerna
-//        else {
-//            x = 0;
-//            y = 0;
-//            
-//            alert("Bilderna var inte ett par...")
-//        }
-//    }
-//});
