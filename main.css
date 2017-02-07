@@ -16,5 +16,7 @@ td{
     overflow: hidden;
 }
 img {
-    height: 100%;
+    width: 500px;
+    border:2px solid #021a40;
+	margin: 5px;
 }
