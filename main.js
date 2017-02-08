@@ -66,10 +66,14 @@ window.onload = printBilder(bilder);
 
 
 //lagrar klass & ID hos den bild man klickar på
-var klassKlick = [ 0, 0, 0, 0];
-var idKlick = [ 0, 0, 0, 0];
+var klassKlick = [ 0, 0, 0, 0, 0];
+var idKlick = [ 0, 0, 0, 0, 0];
 
 var antalPar = 0;
+
+//variabler som lagrar ljud
+var snd = new Audio("correct.mp3");
+var snd2 = new Audio("wrong.mp3");
 
 
 //Diverse funktioner som används i "parhittandet"
@@ -86,19 +90,24 @@ function resetKlicks() {
         $("#" + idKlick[i]).css("border", "2px solid black");
     }
     
-    
     idKlick[0] = 0;
     idKlick[1] = 0;
     idKlick[2] = 0;
     idKlick[3] = 0;
     idKlick[4] = 0;
     
-    alert(idKlick[0] + " " + idKlick[1] + " " + idKlick[2] + " " + idKlick[3] + " " + idKlick[4]);
-    
-    
 }
 
-$("#reset").click(function() {
+function resetGame() {
+    $("img").show();
+}
+
+$("#resetGame").click(function() {
+    resetGame();
+    alert("Spelet är nu återställt");
+});
+
+$("#resetKlick").click(function() {
     resetKlicks();
     alert("Dina klick är nu återställda!");
 });
@@ -147,10 +156,13 @@ function differentId() {
 function toggleClass(className) {
     snd.play();
     $("." + className).fadeToggle("fast");
+    antalPar++;
 }
 
-var snd = new Audio("correct.mp3");
-var snd2 = new Audio("wrong.mp3");
+
+
+
+
 //När man klickar på en bild körs funktionen
 $("img").click(function() {
         
@@ -197,7 +209,7 @@ $("img").click(function() {
             }           
             
         }
-          else if(klassKlick[0] == "8") {
+        else if(klassKlick[0] == "8") {
             
             //Om alla klick har samma klass men olika ID är paret godkänt
             if(allSameClass() == true && differentId() == true) {
@@ -206,6 +218,8 @@ $("img").click(function() {
             }           
             
         }
+        
+        
     }
     
     //Kollar vid tredje klicket -------------------------
@@ -219,8 +233,7 @@ $("img").click(function() {
             if(allSameClass() == true && differentId() == true) {
                 toggleClass("4");
                 resetKlicks();
-            }           
-            
+            }                
         }
 
     }
@@ -236,8 +249,7 @@ $("img").click(function() {
             
             if(allSameClass() == true && differentId() == true) {
                 toggleClass("2");
-                resetKlicks();
-                
+                resetKlicks();                
             } 
             
         }
@@ -248,8 +260,7 @@ $("img").click(function() {
             if(allSameClass() == true && differentId() == true) {
                 toggleClass("7");
                 resetKlicks();
-            }           
-            
+            }
         }
     }
     
@@ -264,9 +275,13 @@ $("img").click(function() {
             if(allSameClass() == true && differentId() == true) {
                 toggleClass("3");
                 resetKlicks();
-            }                  
+            }
+            else {
+                resetKlicks();
+                snd2.play();
+                alert("Du hittade inte alla par...");
+            }
         }
-        
         else {
             resetKlicks();
             snd2.play();

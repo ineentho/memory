@@ -26,12 +26,18 @@ img {
 	margin: 5px;
 }
 #bilder {
-    width: 80%;
+    width: 920px;
     margin: 0 auto;
 }
 
-button {
+#resetKlick {
+    position: fixed;
+    top: 10px;
+    right:10px;
+}
+
+#resetGame {
     position: fixed;
     top: 50px;
-    right:50px;
+    right:10px;
 }
