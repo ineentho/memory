@@ -78,6 +78,13 @@ var snd2 = new Audio("wrong.mp3");
 
 //Diverse funktioner som används i "parhittandet"
 
+//Döljer det par vars namn skickas in
+function toggleClass(className) {
+    snd.play();
+    $("." + className).fadeToggle("fast");
+    antalPar++;
+}
+
 //Återställer alla variabler
 function resetKlicks() {
     klassKlick[0] = 0;
@@ -87,7 +94,7 @@ function resetKlicks() {
     klassKlick[4] = 0;
     
     for(var i = 0; i < 5; i++) {
-        $("#" + idKlick[i]).css("border", "2px solid black");
+        $("#" + idKlick[i]).css("box-shadow", "none");
     }
     
     idKlick[0] = 0;
@@ -98,20 +105,9 @@ function resetKlicks() {
     
 }
 
-function resetGame() {
-    $("img").show();
-}
-
-$("#resetGame").click(function() {
-    resetGame();
-    alert("Spelet är nu återställt");
-});
-
 $("#resetKlick").click(function() {
     resetKlicks();
-    alert("Dina klick är nu återställda!");
 });
-
 
 
 //Kollar så att alla klasser är samma
@@ -144,144 +140,119 @@ function differentId() {
     return true;
 }
 
-function toggleClass(className) {
-    snd.play();
-    $("." + className).fadeToggle("fast");
-    antalPar++;
-}
-
-
-
-
 
 //När man klickar på en bild körs funktionen
 $("img").click(function() {
         
-    $(this).css("border", "2px solid red");
+    //Sätter en effekt på bilder man klickat på
+    $(this).css("box-shadow", "0 5px orange");
     
-    //kollar om det finns ett värde i variablerna och tilldelar klassens värde
     
-    //Kollar vid försa klicket ------------------------
+    //kollar om det finns ett värde i variablerna, tilldelar annas värde ifrån det man klickat på --------------------------
+    
+    //Kollar vid första klicket
     if(klassKlick[0] == 0) {
         klassKlick[0] = $(this).attr("class"); 
         idKlick[0] = $(this).attr("id");
     } 
     
-    //Kollar vid andra klicket ----------------------------------------
+    //Kollar vid andra klicket
     else if(klassKlick[1] == 0) {
         klassKlick[1] = $(this).attr("class");
         idKlick[1] = $(this).attr("id");
-        
-        //Kollar efter paret med klass 1
-        if(klassKlick[0] == "1") {
-            
-            //Om alla klick har samma klass men olika ID är paret godkänt
-            if(allSameClass() == true && differentId() == true) {
-                toggleClass("1");
-                resetKlicks();
-            }           
-            
-        }
-        else if(klassKlick[0] == "5") {
-            
-            //Om alla klick har samma klass men olika ID är paret godkänt
-            if(allSameClass() == true && differentId() == true) {
-                toggleClass("5");
-                resetKlicks();
-            }           
-            
-        }
-        else if(klassKlick[0] == "6") {
-            
-            //Om alla klick har samma klass men olika ID är paret godkänt
-            if(allSameClass() == true && differentId() == true) {
-                toggleClass("6");
-                resetKlicks();
-            }           
-            
-        }
-        else if(klassKlick[0] == "8") {
-            
-            //Om alla klick har samma klass men olika ID är paret godkänt
-            if(allSameClass() == true && differentId() == true) {
-                toggleClass("8");
-                resetKlicks();
-            }           
-            
-        }
-        
-        
     }
     
-    //Kollar vid tredje klicket -------------------------
+    //Kollar vid tredje klicket
     else if(klassKlick[2] == 0) {
         klassKlick[2] = $(this).attr("class");
-        idKlick[2] = $(this).attr("id");
-        
-        if(klassKlick[0] == "4") {
-            
-            //Om alla klick har samma klass men olika ID är paret godkänt
-            if(allSameClass() == true && differentId() == true) {
-                toggleClass("4");
-                resetKlicks();
-            }                
-        }
-
+        idKlick[2] = $(this).attr("id"); 
     }
     
-    //Kollar vid fjärde klicket ----------------------------------
+    //Kollar vid fjärde klicket
     else if(klassKlick[3] == 0) {
         klassKlick[3] = $(this).attr("class");
         idKlick[3] = $(this).attr("id");
-        
-        //Kollar efter paret med klass 2
-        if(klassKlick[0] == "2") {
-            
-            
-            if(allSameClass() == true && differentId() == true) {
-                toggleClass("2");
-                resetKlicks();                
-            } 
-            
-        }
-            
-        else if(klassKlick[0] == "7") {
-            
-            //Om alla klick har samma klass men olika ID är paret godkänt
-            if(allSameClass() == true && differentId() == true) {
-                toggleClass("7");
-                resetKlicks();
-            }
-        }
     }
-    
-    //Kollar vid femte klicket ---------------------------- 
+  
+    //Kollar vid femte klicket
     else if(klassKlick[4] == 0) {
         klassKlick[4] = $(this).attr("class"); 
         idKlick[4] = $(this).attr("id");
-        
-        if(klassKlick[0] == "3") {
-            
-            //Om alla klick har samma klass men olika ID är paret godkänt
-            if(allSameClass() == true && differentId() == true) {
-                toggleClass("3");
-                resetKlicks();
-            }
-            else {
-                resetKlicks();
-                snd2.play();
-                alert("Du hittade inte alla par...");
-            }
-        }
-        else {
-            resetKlicks();
-            snd2.play();
-            alert("Du hittade inte alla par...");
-        }
     } 
     
+    //Kollar om det finns några par ----------------------------------------------------------------------------------
     
+     //Om alla bilder man klickat på har samma klass men olika ID, dvs är ett par
+    if(allSameClass() == true && differentId() == true) {
+
+        //kollar vilken klass bilderna man klickat på har, om alla bilder i paret klickats på, göms paret
+        //(kollar så att parets klass finns på lika många ställen i arrayen som antalet bilder i paret,
+        //t.ex. om ett par har tre bilder så kollas den tredje variabeln om den har rätt klass)
+        if(klassKlick[1] == "1") {
+            toggleClass("1");
+            resetKlicks();
+        }           
+        if(klassKlick[3] == "2") {
+            toggleClass("2");
+            resetKlicks();                
+        } 
+        if(klassKlick[4] == "3") {
+            toggleClass("3");
+            resetKlicks();
+        }
+        if(klassKlick[2] == "4") {
+            toggleClass("4");
+            resetKlicks();
+        } 
+        else if(klassKlick[1] == "5") {          
+            toggleClass("5");
+            resetKlicks();          
+        }
+        else if(klassKlick[1] == "6") {
+            toggleClass("6");
+            resetKlicks();  
+        }
+        else if(klassKlick[3] == "7") {
+            toggleClass("7");
+            resetKlicks();
+        }
+        else if(klassKlick[1] == "8") {
+            toggleClass("8");
+            resetKlicks();
+        }
+    }  
     
-    
-            
+    //Om bilden som klickas på inte hör ihop med den tidigare
+    else {
+        
+        //tar bort klick-effekten eftersom bilden inte hör ihop
+        $(this).css("box-shadow", "none");
+        
+        //hämtar id't ifrån det senaste klicket
+        var latestClick = $(this).attr("id");
+        
+        //Nedanför kollas vilken variabel som håller det senaste id't,  och tar sedan bort det värdet
+        if(idKlick[0] == latestClick) {
+            klassKlick[0] = 0;
+            idKlick[0] = 0;
+        }
+        if(idKlick[1] == latestClick) {
+            klassKlick[1] = 0;
+            idKlick[1] = 0;
+        }
+        if(idKlick[2] == latestClick) {
+            klassKlick[2] = 0;
+            idKlick[2] = 0;
+        }
+        if(idKlick[3] == latestClick) {
+            klassKlick[3] = 0;
+            idKlick[3] = 0;
+        }
+        if(idKlick[4] == latestClick) {
+            klassKlick[4] = 0;
+            idKlick[4] = 0;
+        }
+        snd2.play();
+        alert("De där bilderna hör inte ihop...");
+    }
 });
