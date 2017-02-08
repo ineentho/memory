@@ -21,7 +21,17 @@ td{
     overflow: hidden;
 }
 img {
-    width: 500px;
+    height: 200px;
     border:2px solid #021a40;
 	margin: 5px;
+}
+#bilder {
+    width: 80%;
+    margin: 0 auto;
+}
+
+button {
+    position: fixed;
+    top: 50px;
+    right:50px;
 }
