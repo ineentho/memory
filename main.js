@@ -163,5 +163,9 @@ $("img").click(function() {
                 alert("Du hittade inte alla par...");
             }
         }
+        else {
+            resetKlicks();
+            alert("Du hittade inte alla par...");
+        }
     }
 });
