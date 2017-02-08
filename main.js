@@ -112,7 +112,8 @@ function toggleClass(className) {
     $("." + className).fadeToggle("fast");
 }
 
-
+var snd = new Audio("correct.mp3");
+var snd2 = new Audio("wrong.mp3");
 //När man klickar på en bild körs funktionen
 $("img").click(function() {
     
@@ -132,6 +133,7 @@ $("img").click(function() {
             
             //Om alla klick har samma klass men olika ID är paret godkänt
             if(allSameClass() == true && differentId() == true) {
+                snd.play();
                 toggleClass("1");
                 resetKlicks();
             }           
@@ -154,16 +156,19 @@ $("img").click(function() {
             
             
             if(allSameClass() == true && differentId() == true) {
+                snd.play();
                 toggleClass("2");
                 resetKlicks();
                 
             }     
             else {
+                snd2.play();
                 resetKlicks();
                 alert("Du hittade inte alla par...");
             }
         }
         else {
+            snd2.play();
             resetKlicks();
             alert("Du hittade inte alla par...");
         }
