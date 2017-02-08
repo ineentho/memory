@@ -116,7 +116,6 @@ $("#resetKlick").click(function() {
 
 //Kollar så att alla klasser är samma
 function allSameClass() {
-    var bool;
     
     for(var i = 1; i < klassKlick.length; i++) {
         
@@ -124,18 +123,14 @@ function allSameClass() {
             break;
         }
         else if (klassKlick[0] != klassKlick[i]) {
-            bool = false;
-        }
-        else {
-            bool = true;
+            return false;
         }
     }
-    return bool;
+    return true;
 };
 
 //Kollar så att alla ID skiljer sig åt
 function differentId() {
-    var bool;
     
     for(var i = 1; i < idKlick.length; i++) {
         
@@ -143,14 +138,10 @@ function differentId() {
             break;
         }
         else if (idKlick[0] == idKlick[i]) {
-            bool = false;
-        }
-        else {
-            bool = true;
+            return false;
         }
     }
-    
-    return bool;
+    return true;
 }
 
 function toggleClass(className) {
