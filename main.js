@@ -87,12 +87,13 @@ function resetKlicks() {
     }
     
     
-    
     idKlick[0] = 0;
     idKlick[1] = 0;
     idKlick[2] = 0;
     idKlick[3] = 0;
     idKlick[4] = 0;
+    
+    alert(idKlick[0] + " " + idKlick[1] + " " + idKlick[2] + " " + idKlick[3] + " " + idKlick[4]);
     
     
 }
@@ -144,6 +145,7 @@ function differentId() {
 }
 
 function toggleClass(className) {
+    snd.play();
     $("." + className).fadeToggle("fast");
 }
 
@@ -160,21 +162,18 @@ $("img").click(function() {
     if(klassKlick[0] == 0) {
         klassKlick[0] = $(this).attr("class"); 
         idKlick[0] = $(this).attr("id");
-        alert(klassKlick[0]);
     } 
     
     //Kollar vid andra klicket ----------------------------------------
     else if(klassKlick[1] == 0) {
         klassKlick[1] = $(this).attr("class");
         idKlick[1] = $(this).attr("id");
-        alert(klassKlick[1]);
         
         //Kollar efter paret med klass 1
         if(klassKlick[0] == "1") {
             
             //Om alla klick har samma klass men olika ID är paret godkänt
             if(allSameClass() == true && differentId() == true) {
-                snd.play();
                 toggleClass("1");
                 resetKlicks();
             }           
@@ -213,7 +212,6 @@ $("img").click(function() {
     else if(klassKlick[2] == 0) {
         klassKlick[2] = $(this).attr("class");
         idKlick[2] = $(this).attr("id");
-        alert(klassKlick[2]);
         
         if(klassKlick[0] == "4") {
             
@@ -231,18 +229,15 @@ $("img").click(function() {
     else if(klassKlick[3] == 0) {
         klassKlick[3] = $(this).attr("class");
         idKlick[3] = $(this).attr("id");
-        alert(klassKlick[3]);
         
         //Kollar efter paret med klass 2
         if(klassKlick[0] == "2") {
             
             
             if(allSameClass() == true && differentId() == true) {
-                snd.play();
                 toggleClass("2");
                 resetKlicks();
                 
-<<<<<<< HEAD
             } 
             
         }
@@ -257,32 +252,26 @@ $("img").click(function() {
             
         }
     }
+    
+    //Kollar vid femte klicket ---------------------------- 
     else if(klassKlick[4] == 0) {
         klassKlick[4] = $(this).attr("class"); 
         idKlick[4] = $(this).attr("id");
-        alert(klassKlick[0]);
         
         if(klassKlick[0] == "3") {
             
             //Om alla klick har samma klass men olika ID är paret godkänt
             if(allSameClass() == true && differentId() == true) {
                 toggleClass("3");
-=======
-            }     
-            else {
-                snd2.play();
->>>>>>> 947b539dd26a1950623a8b4b268b8bb141eff6ea
                 resetKlicks();
-            }           
-            
+            }                  
         }
         
         else {
-            snd2.play();
             resetKlicks();
+            snd2.play();
             alert("Du hittade inte alla par...");
         }
-<<<<<<< HEAD
     } 
     
     
@@ -290,7 +279,3 @@ $("img").click(function() {
     
             
 });
-=======
-    }
-});
->>>>>>> 947b539dd26a1950623a8b4b268b8bb141eff6ea
