@@ -5,8 +5,6 @@
 //Sparas på det här viset eftersom de ska genereras i slumpmässigordning
 //innan de läggs till i html-filen
 var bilder = [
-    "<img class='1' id='colors1' src='bilder/g0000.gif'>",
-    "<img class='1' id='colors2' src='bilder/g0000.png'>",
     "<img class='2' id='resample1' src='bilder/resample1.png'>",
     "<img class='2' id='resample2' src='bilder/resample2.png'>",
     "<img class='2' id='resample3' src='bilder/resample3bilineal.png'>",
