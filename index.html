@@ -17,6 +17,158 @@
            
             
         </div>
+        <div>
+            <h2>False Color</h2>
+            <p>
+                False color refererar till bilder som renderas till en färg som inte stämmer överens med hur bilden skulle sett ut i true color.
+                Alltså som ett fotografi skulle visa bilden. 
+                Genom att släppa igenom olika mängder färg från ett spektrum i en palett såsom RGB eller CMYK kan färgerna manipuleras och uppfattas som annorlunda och visar då alltså en “false” representation av bilden.
+            </p>
+                False color kan också användas med spektrum som inte är synliga för mänskliga ögat. 
+                Detta har resulterat i att False color manipulation är vanligt vetenskapliga kretsar för att kartlägga saker såsom vegetation, höjdskillnader, värmeskillnader, långdistans rymdbilder eller ämnes variationer av ytor eller planeter.
+            <p>
+                
+            </p>
+        </div>
+        <div>
+            <h2> Anti-aliasing </h2>
+            <p>
+                Anti aliasing eller kantutjämning är en funktion som i bildgrafik finns till för att jämna ut kanter på polygoner så att de inte är för kantiga eller hackiga. 
+                Då skärmar alltid representerar bilder i form av pixlar kan kurvor eller linjer se kantiga ut. 
+                Men med hjälp av antialiasing algoritmer som använder sig utav ett matematiskt fenomen som kallas för interpolation, en uppskattning av värden på närliggande pixlar, för att jämna ut kanterna med att ändra färg på dessa pixlar.
+            </p>
+            <p>
+                Vilka pixlar som tas i beaktning vid rendering beror på vilken interpolation metod algoritmen använder sig utav. Exempel på några metoder: 
+            </p>
+                <ul>
+                    <li>Nearest neighbour</li>
+                    <li>Bilinear interpolation</li>
+                    <li>Bicubic interpolation</li>
+                    <li>Spline</li>
+                    <li>Sinc</li>
+                </ul>
+            <p>
+                Metoderna skiljer sig åt och levererar olika bra resultat beroende på vad man vill åstadkomma.
+                Exempelvis bevarar nearest neighbour skarpa kanter medans andra kan vara bättre på down/up scaling och andra som tar in många fler pixlar i beaktning.
+            </p>
+            <p> Antialising är vanligt använt i Videospel och ofta är det där folk kommer i kontakt med fenomenet. Olika former som används i området är: 
+                <ul>
+                    <li>Supersample anti-aliasing (SSAA), En spatial metod</li>
+                    <li>Multisample anti.alisaing (MSAA), En spatial metod</li>
+                    <li>Fast approximate anti-aliasing (FXAA) En algoritm skapad av NVIDIA</li>
+                    <li>Coverge sampling anti-aliasing (CSAA) En technologi först använd i GeForce 8 serien</li>
+                </ul>
+        </div>
+        <div>
+            <h2> Moire Pattern </h2>
+            <p> Moire mönster är ett fenomen som uppstår när liknande mönster läggs ovanpå varandra och ett lager lutas några grader. 
+                Ett nytt mönster kommer då att framträda på grund utav att vissa områden förstärks.
+                Det blir alltså mönster i mönster som kan uppfattas som störande att titta på.
+            </p>
+            <p>
+                Vid bildbehandling kan randiga eller rutiga mönster interferera med skärmens egna pixlar. 
+                Detta resulterar i ett Morié mönster som kallas Objektmoiré. 
+                Mönstret kan också uppstå vid tryck av bilder. 
+                Om vinkeln mellan rasterlinjerna, plattorna som applicerar de olika färgerna, blir fel uppstår det mönster.
+            </p>
+            <p>
+                Med hjälp utav att införa avsiktliga slumpvisa variationer i mönstret kan man undvika en Moiré effekt.
+            </p>
+        </div>
+        <div>
+            <h2>Spatial convolution</h2>
+            <p>
+                Spatial convolution är en form av pixel grupp processering. 
+                Ett nytt värde för pixeln beräknas med hjälp av värdet hos sig och sina grannar. 
+                Dessa relativa värden berättar saker som hur styrka och färg förändras i bilden. 
+                Antal pixlar som ingår i gruppen kan variera men det är alltid ett kvadratiskt tal med den aktuella pixeln i mitten så exempelvis 3*3, 5*5 eller 7*7. Tillsammans bildar de en convolution mask där varje pixel kallas för convolution kernel som har sin plats i ett rutnät runt käll pixeln. 
+                Genom olika kombinationer av värden hos convolution kerneln kan olika bildmanipulationer framställas.
+            </p>  
+            <h3>Skärpa</h3>
+            <p>               
+                Med kernels i ett mönster som detta sker en skärpa effekt. 
+                Nackdelen är att kanterna blir ofta väldigt skarpa, ofta för skarpa för bilden.
+            </p>
+            <h3>Oskärpa</h3>
+            <p>
+                När alla kernels är positiva skapas en oskärpa effekt. 
+                Gaussisk oskärpa är ett användbart filter som använder en Gaussin funktion som liknar en bell-kurva för att få en unik blurr effekt som kan jämföras med att se igenom mindre genomskinligt glas. 
+                Kurvan är också skalenlig för en kraftigare effekt.
+            </p>
+            <h3>Emboss</h3>
+            <p>
+                Syftar på tekniken som går ut på att få ett höjt mönster. 
+                Med ett kernel mönster där det är negativt i top-left och positivt i bottom-right så skapas en eboss effekt.Dessa tre är grundläggande convolution filter men kombinerade eller med mer specifika filterinställningar kan effekter som drop-shadows, low-pass filter, korrigering utav fokus, borttagandet av artefakter såsom moire mönster  med flera. 
+                Det är dock viktigt att veta att varje korrigering är förstörande gällande informationen om bilden. När ett filter har applicerat går det inte att återställa bilden.
+            </p>
+        </div>
+        <div>
+            <h2>Resampling</h2>
+            <p>
+                När vi ändrar storlek på en bitmappsbild så ändras pixel dimensionen av bilden. 
+                Det vill säga så måste vi ta bort pixlar när vi förminskar en bild och lägga till pixlar när vi förstorar. 
+                Denna process kallas resampling och kan leda till en förlust av visuell kvalité. 
+            </p>
+        </div>
+        <div>
+            <h2>Color Depth</h2>
+            <p>
+                Färgdjup är hur många nyanser av färger som en bild kan visa. 
+                Färgdjupet är beroende på hur många bitar bilden är sparad i. 
+                Ju fler bitar ju mer information om färgerna kan skickas med bilden och fler nyanser kan representeras. 
+                Antalet färger brukar urskiljas genom att kalla dem miljontals färger, tusentals färger eller 256 färger. 
+            </p>
+            <ul>
+                <li>24-bitar har 16 777 216 färger</li>
+                <li>16-bitar har 65 536 färger</li>
+                <li>F8-bitar har 256 färger</li>
+                <li>4-bitar har 16 färger</li>
+                <li>2-bitar har 4 färger</li>
+                <li>1-bitar har 2 färger</li>
+            </ul>
+            <p>
+                Posesterization eller bandning är ett fenomen som sker när en bild kvantifieras till ett lägre bit-tal. 
+                Numreringen av färgnyansen kommer då avrundas till ett nytt närmaste värde. 
+                Man kan då se att graderingen av färgtoner klumpar ihop sig till band av samma färg i diskreta steg eller band, därav namnet bandning. 
+            </p>
+            <p>
+                Dither är en teknik som kan användas för att kringgå kvantiseringsfel såsom bandning. 
+                Dither är ett brusfilter som slumpvis bryter upp färg mönstret så att bandning inte blir lika tydligt. 
+                En vanlig användning av dither är att göra gråskalebilder till svartvita bilder.
+            </p>
+        </div>
+        <div>
+            <h2>Filformat</h2>
+            <p>
+                GIF eller Graphics Interchange Format släpptes 1987 i amerika. 
+                Formatet stödjer 8-bitar per bild vilket ger den en palett av 256 färger. 
+                Dess komprimering använder sig utav algoritmen LZW som är en ickeförstörande komprimering. 
+                LZW är en förbättrad implementation utav LZ78. GIF stödjer också animationer där varje bild i animationen kan ha en egen palett av 256 färger. 
+                Stödet av genomskinlighet finns också men ingen gradering av genomskinligheten.
+            </p>
+            <p>
+                GIF är en åldrande standard då mer effektiva komprimeringsalgoritmer nu finns tillgängliga samt dess limiterade färgdjup av 256 färger. 
+                Men dess popularitet och tillgänglighet på www kan se till att den fortsätter att användas.
+            </p>
+            <p>
+                PNG eller Portable Network Graphics utvecklades bland annat som en ersättare till filformatet GIF och har därmed många av dess bra kvalitér. 
+                PNG är speciellt vanligt för icke-fotografiska bilder så som loggor eller ikoner. 
+                PNG har stöd till att visa färg i upp till 48-bitar i RGB format men kan också använda sig utav 256 färgers paletter. 
+                Det finns också stöd för en alfakanal som kan användas som representation av transparens, alltså en gradering av transparens. 
+            </p>
+            <p>
+                Precis som GIF använder PNG en ickeförstörande komprimering. 
+                PNG använder en tvåstegsprocess där den först förutspår värdet på pixlar för att få den mer komprimerbar sedan använder den sin komprimeringsalgoritm DEFLATE. 
+                DEFLATE är en kombination av LZ77 och en Huffmankodning. Den 10 november 2003 blev PNG en internationell standard.
+            </p>
+            <p>
+                JPEG eller Joint Photographic Expert group är en standard för destruktiv komprimering som främst används för fotografiska bilder. 
+                JPEG komprimering bör undvikas på ritningar eller datorskapade bilder där komprimeringsgraden blir extremt låg om bildkvaliteten inte ska ändras mycket. 
+                På fotografiska bilder kan däremot jpeg komprimering utföra 10:1 komprimeringar med väldigt få förluster i bildkvalité. JPEG komprimering är heller inte bra för filer som ska gå igenom flera steg utav redigering då destruktiv komprimering, även om den inte är så synbar, kan få större konsekvenser om det görs om och om igen. 
+                JPEG har inget stöd för transparens.
+
+            </p>
+        </div>
     </main>
 </body>
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
