@@ -67,6 +67,8 @@ window.onload = printBilder(bilder);
 var klassKlick = [ 0, 0, 0, 0, 0];
 var idKlick = [ 0, 0, 0, 0, 0];
 
+var antalKlick = 0;
+
 var antalPar = 0;
 
 //variabler som lagrar ljud
@@ -101,6 +103,8 @@ function resetKlicks() {
     idKlick[3] = 0;
     idKlick[4] = 0;
     
+    antalKlick = 0;
+    
 }
 
 $("#resetKlick").click(function() {
@@ -126,17 +130,15 @@ function allSameClass() {
 //Kollar så att alla ID skiljer sig åt
 function differentId() {
     
-    for(var i = 1; i < idKlick.length; i++) {
+    for(var i = 0; i < antalKlick-1; i++) {
         
-        if(idKlick[i] == 0) {
-            break;
-        }
-        else if (idKlick[0] == idKlick[i]) {
+        if(idKlick[antalKlick-1] == idKlick[i]) {
             return false;
         }
     }
     return true;
 }
+
 
 
 //När man klickar på en bild körs funktionen
@@ -148,34 +150,45 @@ $("img").click(function() {
     
     //kollar om det finns ett värde i variablerna, tilldelar annas värde ifrån det man klickat på --------------------------
     
+    
     //Kollar vid första klicket
     if(klassKlick[0] == 0) {
         klassKlick[0] = $(this).attr("class"); 
         idKlick[0] = $(this).attr("id");
+        
+        antalKlick ++;
     } 
     
     //Kollar vid andra klicket
     else if(klassKlick[1] == 0) {
         klassKlick[1] = $(this).attr("class");
         idKlick[1] = $(this).attr("id");
+        
+        antalKlick ++;
     }
     
     //Kollar vid tredje klicket
     else if(klassKlick[2] == 0) {
         klassKlick[2] = $(this).attr("class");
         idKlick[2] = $(this).attr("id"); 
+        
+        antalKlick ++;
     }
     
     //Kollar vid fjärde klicket
     else if(klassKlick[3] == 0) {
         klassKlick[3] = $(this).attr("class");
         idKlick[3] = $(this).attr("id");
+        
+        antalKlick++;
     }
   
     //Kollar vid femte klicket
     else if(klassKlick[4] == 0) {
         klassKlick[4] = $(this).attr("class"); 
         idKlick[4] = $(this).attr("id");
+        
+        antalKlick++;
     } 
     
     //Kollar om det finns några par ----------------------------------------------------------------------------------
@@ -233,22 +246,27 @@ $("img").click(function() {
         if(idKlick[0] == latestClick) {
             klassKlick[0] = 0;
             idKlick[0] = 0;
+            antalKlick --;
         }
         if(idKlick[1] == latestClick) {
             klassKlick[1] = 0;
             idKlick[1] = 0;
+            antalKlick --;
         }
         if(idKlick[2] == latestClick) {
             klassKlick[2] = 0;
             idKlick[2] = 0;
+            antalKlick --;
         }
         if(idKlick[3] == latestClick) {
             klassKlick[3] = 0;
             idKlick[3] = 0;
+            antalKlick --;
         }
         if(idKlick[4] == latestClick) {
             klassKlick[4] = 0;
             idKlick[4] = 0;
+            antalKlick --;
         }
         snd2.play();
         alert("De där bilderna hör inte ihop...");
