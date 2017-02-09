@@ -67,6 +67,10 @@ button:active {
     margin-bottom: 5px;
 }
 
-
+.infoBox{
+	background-color:#e6e6e6;
+	border: 2px solid black; 
+	color:black;
+	}
 
 
