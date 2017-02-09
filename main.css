@@ -7,10 +7,7 @@ body {
 	background: -moz-linear-gradient(bottom right, #f7f7f7, white); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(to bottom right, #f7f7f7, white); /* Standard syntax */
 }
-h1, main p {
-    margin: 0 10%;
-    padding: 0 6%;
-}
+
 h1 {
     margin-bottom: 5px;
 }
@@ -69,7 +66,8 @@ button:active {
 
 .infoBox{
 	width: 600px;
-	background-color:#e6e6e6; 
+	background-color:#cccccc;
+	border: solid 1px black;
 	color:black;
 	-webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
 	-moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
@@ -79,6 +77,11 @@ button:active {
 	left:0;
   	right: 0;
 	padding: 15px;
+	padding-left: 25px;
+	padding-right:25px;
+	text-align:left;
+	
+	
 	}
 
 
