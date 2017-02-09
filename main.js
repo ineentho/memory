@@ -107,8 +107,9 @@ function resetKlicks() {
     
 }
 
-$("#resetKlick").click(function() {
+$("#resetGame").click(function() {
     resetKlicks();
+    $("img").show();
 });
 
 
