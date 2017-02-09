@@ -80,6 +80,7 @@ button:active {
 	padding-left: 25px;
 	padding-right:25px;
 	text-align:left;
+	display: none;
 	
 	
 	}
