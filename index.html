@@ -12,18 +12,26 @@
 
         <div id="bilder">
             
-            <div class="infoBox 6">
+        <div class="infoBox 6">
             <h2>False Color</h2>
             <p>
                 False color refererar till bilder som renderas till en färg som inte stämmer överens med hur bilden skulle sett ut i true color.
                 Alltså som ett fotografi skulle visa bilden. 
                 Genom att släppa igenom olika mängder färg från ett spektrum i en palett såsom RGB eller CMYK kan färgerna manipuleras och uppfattas som annorlunda och visar då alltså en “false” representation av bilden.
             </p>
-                False color kan också användas med spektrum som inte är synliga för mänskliga ögat. 
-                Detta har resulterat i att False color manipulation är vanligt vetenskapliga kretsar för att kartlägga saker såsom vegetation, höjdskillnader, värmeskillnader, långdistans rymdbilder eller ämnes variationer av ytor eller planeter.
             <p>
-                
+                False color kan också användas med spektrum som inte är synliga för mänskliga ögat. 
+                Detta har resulterat i att False color manipulation är vanligt vetenskapliga kretsar för att kartlägga saker såsom vegetation, höjdskillnader, värmeskillnader, långdistans rymdbilder eller ämnes variationer av ytor eller planeter.                  
             </p>
+            <figure>
+                <img src="bilder/false-color.jpg">
+                <figcaption>False-color</figcaption>
+            </figure>
+            <figure>
+                <img src="bilder/true-color.jpg">
+                <figcaption>True-color</figcaption>
+            </figure>
+            <a class="toggleInfo">Stäng ner</a>
         </div>
         <div class="infoBox 5">
             <h2> Anti-aliasing </h2>
@@ -32,20 +40,6 @@
                 Då skärmar alltid representerar bilder i form av pixlar kan kurvor eller linjer se kantiga ut. 
                 Men med hjälp av antialiasing algoritmer som använder sig utav ett matematiskt fenomen som kallas för interpolation, en uppskattning av värden på närliggande pixlar, för att jämna ut kanterna med att ändra färg på dessa pixlar.
             </p>
-            <p>
-                Vilka pixlar som tas i beaktning vid rendering beror på vilken interpolation metod algoritmen använder sig utav. Exempel på några metoder: 
-            </p>
-                <ul>
-                    <li>Nearest neighbour</li>
-                    <li>Bilinear interpolation</li>
-                    <li>Bicubic interpolation</li>
-                    <li>Spline</li>
-                    <li>Sinc</li>
-                </ul>
-            <p>
-                Metoderna skiljer sig åt och levererar olika bra resultat beroende på vad man vill åstadkomma.
-                Exempelvis bevarar nearest neighbour skarpa kanter medans andra kan vara bättre på down/up scaling och andra som tar in många fler pixlar i beaktning.
-            </p>
             <p> Antialising är vanligt använt i Videospel och ofta är det där folk kommer i kontakt med fenomenet. Olika former som används i området är: 
                 <ul>
                     <li>Supersample anti-aliasing (SSAA), En spatial metod</li>
@@ -53,6 +47,16 @@
                     <li>Fast approximate anti-aliasing (FXAA) En algoritm skapad av NVIDIA</li>
                     <li>Coverge sampling anti-aliasing (CSAA) En technologi först använd i GeForce 8 serien</li>
                 </ul>
+            </p>
+            <figure>
+                <img src="bilder/jagged.jpg">
+                <figcaption>Jagged edge</figcaption>
+            </figure>
+            <figure>
+                <img src="bilder/antialiasing.jpg">
+                <figcaption>Anti-aliasing</figcaption>
+            </figure>
+            <a class="toggleInfo">Stäng ner</a>
         </div>
         <div class="infoBox 8">
             <h2> Moire Pattern </h2>
@@ -69,6 +73,15 @@
             <p>
                 Med hjälp utav att införa avsiktliga slumpvisa variationer i mönstret kan man undvika en Moiré effekt.
             </p>
+            <figure>
+                <img src="bilder/moaire.jpg">
+                <figcaption>Moaire - innan</figcaption>
+            </figure>
+            <figure>
+                <img src="bilder/moaire_fixed2.jpg">
+                <figcaption>Moaire - efter</figcaption>
+            </figure>
+            <a class="toggleInfo">Stäng ner</a>
         </div>
         <div class="infoBox 7">
             <h2>Spatial convolution</h2>
@@ -79,23 +92,52 @@
                 Antal pixlar som ingår i gruppen kan variera men det är alltid ett kvadratiskt tal med den aktuella pixeln i mitten så exempelvis 3*3, 5*5 eller 7*7. Tillsammans bildar de en convolution mask där varje pixel kallas för convolution kernel som har sin plats i ett rutnät runt käll pixeln. 
                 Genom olika kombinationer av värden hos convolution kerneln kan olika bildmanipulationer framställas.
             </p>  
+            <figure>
+                <img src="bilder/jellyfish.jpg">
+                <figcaption>Originalbilden</figcaption>
+            </figure>
             <h3>Skärpa</h3>
             <p>               
                 Med kernels i ett mönster som detta sker en skärpa effekt. 
                 Nackdelen är att kanterna blir ofta väldigt skarpa, ofta för skarpa för bilden.
             </p>
+            <figure>
+                <img src="bilder/jellyfishsharp.jpg">
+                <figcaption>Med skärpa</figcaption>
+            </figure>
+            <figure>
+                <img src="bilder/sharp.png">
+                <figcaption>Convolution mask</figcaption>
+            </figure>
             <h3>Oskärpa</h3>
             <p>
                 När alla kernels är positiva skapas en oskärpa effekt. 
                 Gaussisk oskärpa är ett användbart filter som använder en Gaussin funktion som liknar en bell-kurva för att få en unik blurr effekt som kan jämföras med att se igenom mindre genomskinligt glas. 
                 Kurvan är också skalenlig för en kraftigare effekt.
             </p>
+            <figure>
+                <img src="bilder/jellyfishblur.jpg">
+                <figcaption>Med oskärpa</figcaption>
+            </figure>
+            <figure>
+                <img src="bilder/blur.png">
+                <figcaption>Convolution mask</figcaption>
+            </figure>
             <h3>Emboss</h3>
             <p>
                 Syftar på tekniken som går ut på att få ett höjt mönster. 
                 Med ett kernel mönster där det är negativt i top-left och positivt i bottom-right så skapas en eboss effekt.Dessa tre är grundläggande convolution filter men kombinerade eller med mer specifika filterinställningar kan effekter som drop-shadows, low-pass filter, korrigering utav fokus, borttagandet av artefakter såsom moire mönster  med flera. 
                 Det är dock viktigt att veta att varje korrigering är förstörande gällande informationen om bilden. När ett filter har applicerat går det inte att återställa bilden.
-            </p>
+            </p>  
+            <figure>
+                <img src="bilder/jellyfishemboss.jpg">
+                <figcaption>Med emboss</figcaption>
+            </figure>
+            <figure>
+                <img src="bilder/emboss.png">
+                <figcaption>Convolution mask</figcaption>
+            </figure>
+            <a class="toggleInfo">Stäng ner</a>
         </div>
         <div class="infoBox 2">
             <h2>Resampling</h2>
@@ -104,6 +146,37 @@
                 Det vill säga så måste vi ta bort pixlar när vi förminskar en bild och lägga till pixlar när vi förstorar. 
                 Denna process kallas resampling och kan leda till en förlust av visuell kvalité. 
             </p>
+            <p>
+                Vilka pixlar som tas i beaktning vid rendering beror på vilken interpolation metod algoritmen använder sig utav. Exempel på några metoder: 
+            </p>
+            <ul>
+                <li>Nearest neighbour</li>
+                <li>Bilinear interpolation</li>
+                <li>Bicubic interpolation</li>
+                <li>Spline</li>
+                <li>Sinc</li>
+            </ul>
+            <figure>
+                <img src="bilder/resample1.png">
+                <figcaption>Originalbilden</figcaption>
+            </figure>
+            <figure>
+                <img src="bilder/resample2.png">
+                <figcaption>Nearest Neighbour</figcaption>
+            </figure>
+            <figure>
+                <img src="bilder/resample3bilineal.png">
+                <figcaption>Bilinear interpolation</figcaption>
+            </figure>
+            <figure>
+                <img src="bilder/resampling4bicubic.png">
+                <figcaption>Bicubic interpolations</figcaption>
+            </figure>
+            <p>
+                Metoderna skiljer sig åt och levererar olika bra resultat beroende på vad man vill åstadkomma.
+                Exempelvis bevarar nearest neighbour skarpa kanter medans andra kan vara bättre på down/up scaling och andra som tar in många fler pixlar i beaktning.
+            </p>
+            <a class="toggleInfo">Stäng ner</a>
         </div>
         <div class="infoBox 3">
             <h2>Color Depth</h2>
@@ -121,6 +194,26 @@
                 <li>2-bitar har 4 färger</li>
                 <li>1-bitar har 2 färger</li>
             </ul>
+            <figure>
+                <img src="bilder/2-bitar.png">
+                <figcaption>Bild i 2-bitar</figcaption>
+            </figure>
+            <figure>
+                <img src="bilder/4-bitar.bmp">
+                <figcaption>Bild i 4-bitar</figcaption>
+            </figure>
+            <figure>
+                <img src="bilder/8-bitar.bmp">
+                <figcaption>Bild i 8-bitar</figcaption>
+            </figure>
+            <figure>
+                <img src="bilder/16-bitar.bmp">
+                <figcaption>Bild i 16-bitar</figcaption>
+            </figure>
+            <figure>
+                <img src="bilder/24-bitar.bmp">
+                <figcaption>Bild i 24-bitar</figcaption>
+            </figure>
             <p>
                 Posesterization eller bandning är ett fenomen som sker när en bild kvantifieras till ett lägre bit-tal. 
                 Numreringen av färgnyansen kommer då avrundas till ett nytt närmaste värde. 
@@ -131,6 +224,7 @@
                 Dither är ett brusfilter som slumpvis bryter upp färg mönstret så att bandning inte blir lika tydligt. 
                 En vanlig användning av dither är att göra gråskalebilder till svartvita bilder.
             </p>
+            <a class="toggleInfo">Stäng ner</a>
         </div>
         <div class="infoBox 4">
             <h2>Filformat</h2>
@@ -141,6 +235,10 @@
                 LZW är en förbättrad implementation utav LZ78. GIF stödjer också animationer där varje bild i animationen kan ha en egen palett av 256 färger. 
                 Stödet av genomskinlighet finns också men ingen gradering av genomskinligheten.
             </p>
+            <figure>
+                <img src="bilder/Filformat.gif">
+                <figcaption>GIF med transparens</figcaption>
+            </figure>
             <p>
                 GIF är en åldrande standard då mer effektiva komprimeringsalgoritmer nu finns tillgängliga samt dess limiterade färgdjup av 256 färger. 
                 Men dess popularitet och tillgänglighet på www kan se till att den fortsätter att användas.
@@ -151,6 +249,10 @@
                 PNG har stöd till att visa färg i upp till 48-bitar i RGB format men kan också använda sig utav 256 färgers paletter. 
                 Det finns också stöd för en alfakanal som kan användas som representation av transparens, alltså en gradering av transparens. 
             </p>
+            <figure>
+                <img src="bilder/Filformat.png">
+                <figcaption>PNG med transparens</figcaption>
+            </figure>
             <p>
                 Precis som GIF använder PNG en ickeförstörande komprimering. 
                 PNG använder en tvåstegsprocess där den först förutspår värdet på pixlar för att få den mer komprimerbar sedan använder den sin komprimeringsalgoritm DEFLATE. 
@@ -161,16 +263,17 @@
                 JPEG komprimering bör undvikas på ritningar eller datorskapade bilder där komprimeringsgraden blir extremt låg om bildkvaliteten inte ska ändras mycket. 
                 På fotografiska bilder kan däremot jpeg komprimering utföra 10:1 komprimeringar med väldigt få förluster i bildkvalité. JPEG komprimering är heller inte bra för filer som ska gå igenom flera steg utav redigering då destruktiv komprimering, även om den inte är så synbar, kan få större konsekvenser om det görs om och om igen. 
                 JPEG har inget stöd för transparens.
-
             </p>
+            <figure>
+                <img src="bilder/Filformat.jpg">
+                <figcaption>JPEG (utan transparens)</figcaption>
+            </figure>
+            <a class="toggleInfo">Stäng ner</a>
         </div>
             
             <div id="buttons">
                     <button id="resetGame">Spela från början</button>
             </div>
-           
-            
-        </div>
         
     </main>
 </body>

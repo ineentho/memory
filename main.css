@@ -72,17 +72,39 @@ button:active {
 	-webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
 	-moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.75);
 	box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.75);
-	position: absolute;
-	margin: auto;
-	left:0;
-  	right: 0;
 	padding: 15px;
 	padding-left: 25px;
 	padding-right:25px;
 	text-align:left;
 	display: none;
 	
+    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-height: 80%;
+    overflow: auto;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
 	
 	}
 
+figure {
+    display: inline-block;
+    margin-left: 0;
+}
+.toggleInfo {
+    display: block;
+    color: coral;
+}
+.toggleInfo:hover {
+    color: white;
+    cursor: pointer;
+}
+.toggleInfo:visited {
+    color: black;
+}
 

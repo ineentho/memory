@@ -85,6 +85,15 @@ function toggleClass(className) {
     antalPar++;
 }
 
+$(".toggleInfo").click(function() {
+    
+    $(this).parent().hide();
+});
+    
+    
+    
+    
+
 //Återställer alla variabler
 function resetKlicks() {
     klassKlick[0] = 0;
@@ -110,6 +119,7 @@ function resetKlicks() {
 $("#resetGame").click(function() {
     resetKlicks();
     $("img").show();
+    antalPar = 0;
 });
 
 
@@ -271,5 +281,12 @@ $("img").click(function() {
         }
         snd2.play();
         alert("De där bilderna hör inte ihop...");
+    }
+    
+    if (antalPar == 7) {
+        $(".infoBox").show();
+        $(".infoBox").css("position", "static");
+        $(".infoBox").css("transform", "translate(0, 0)");
+        $(".infoBox").css("margin", "0 auto");
     }
 });
