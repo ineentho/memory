@@ -94,6 +94,7 @@ $(".toggleInfo").click(function() {
         $(".infoBox").css("position", "static");
         $(".infoBox").css("transform", "translate(0, 0)");
         $(".infoBox").css("margin", "0 auto");
+        antalPar ++;
     }
 });
     
