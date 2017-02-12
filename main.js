@@ -88,6 +88,13 @@ function toggleClass(className) {
 $(".toggleInfo").click(function() {
     
     $(this).parent().hide();
+    
+    if (antalPar == 7) {
+        $(".infoBox").show();
+        $(".infoBox").css("position", "static");
+        $(".infoBox").css("transform", "translate(0, 0)");
+        $(".infoBox").css("margin", "0 auto");
+    }
 });
     
     
@@ -283,10 +290,5 @@ $("img").click(function() {
         alert("De där bilderna hör inte ihop...");
     }
     
-    if (antalPar == 7) {
-        $(".infoBox").show();
-        $(".infoBox").css("position", "static");
-        $(".infoBox").css("transform", "translate(0, 0)");
-        $(".infoBox").css("margin", "0 auto");
-    }
+
 });
